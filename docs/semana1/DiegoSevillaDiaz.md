@@ -2,7 +2,7 @@
 
 **Nombre:** Diego Sevilla Díaz
 
-**Usuario de GitHub:** _pendiente_
+**Usuario de GitHub:** Oni7u7
 
 ---
 
