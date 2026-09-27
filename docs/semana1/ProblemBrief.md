@@ -4,26 +4,37 @@
 
 ### Problema elegido
 
-Los socios y operadores de las rutas de transporte concesionado en la CDMX (como el corredor Coviteni) no tienen una forma confiable y verificable de saber cuánto se recaudó en pasajes y cómo se reparte ese dinero entre ellos.
+Quien entrega dinero con una condición (un familiar que manda dinero para la despensa, una marca que reparte cupones, un evento que da recompensas) pierde el control y la visibilidad de cómo se usa en cuanto el dinero cambia de manos, y quien lo recibe enfrenta filas, comisiones y cupones duplicados para poder usarlo.
 
-**Propuesto por:** Edgar López Baeza.
+**Propuesto por:** propuesta consolidada del equipo. El núcleo viene de la idea de **Diego Sevilla Díaz** (tarjeta de pago autorizado) y se integró con piezas de las propuestas de **Axel Isaías Rodríguez Frías** (lealtad cultural), **Fernanda** (remesas), la idea de cupones que surgió en el debate y la lección de riesgo regulatorio que dejó la propuesta de **Edgar López Baeza** (Coviteni).
 
 ### Por qué elegimos este
 
-Es un problema real, con datos concretos y un nicho que casi no se trabaja en hackathons. Además cumple con claridad dos criterios de la Sesión 1: hay **varias partes que no confían entre sí** (socios, administración, choferes, autoridad) que necesitan **compartir un mismo registro**, y ese registro necesita un **histórico que no se pueda alterar** (los cortes diarios). En las otras propuestas blockchain aportaba, pero el problema de confianza era menos central.
+Al comparar las cinco ideas notamos que tres de ellas (remesas, lealtad y cupones) tenían el mismo problema de fondo: **dinero o valor que se entrega con una condición que hoy nadie puede hacer cumplir ni rastrear**. En lugar de escoger una sola, elegimos el problema común.
+
+Según los criterios de la Sesión 1:
+
+- **Eliminar un intermediario que concentra la confianza:** hoy el emisor tiene que confiar en el beneficiario, en la remesadora o en la plataforma de lealtad; con reglas programadas, la condición se cumple sola.
+- **Histórico inalterable:** el emisor necesita un registro de qué se compró, dónde y cuándo, que nadie pueda editar.
+- **Partes que no confían entre sí comparten un registro:** emisor, beneficiario y comercio consultan la misma fuente.
+
+Además es la opción con menor riesgo regulatorio: al tratarse de consumo cerrado y condicionado (no transferencia libre de dinero), no requiere licencia de remesadora.
 
 ### Propuestas descartadas
 
-| # | Propuesta | Propuso | Motivo del descarte |
-|---|-----------|---------|---------------------|
-| 2 | Tarjeta de pago autorizado (estilo Kura) | Diego Sevilla Díaz | Tiene un precedente verificable, infraestructura real (Accesly / Pollar) y un contrato Soroban con valor genuino, pero no encontramos un ángulo de diferenciación propio frente a Kura. |
-| 3 | Lealtad cultural | Axel Isaías Rodríguez Frías | Es la más fácil de demostrar, pero el caso de éxito es prestado (IRL × Stellar) y el problema de cuentas falsas (Sybil) sigue sin resolver. |
-| 4 | Remesas con Accesly / Pollar | Fernanda | La infraestructura existe, pero no tenemos calculada la economía unitaria, requiere licencia regulatoria y depende de dos startups todavía tempranas. |
-| 5 | Cupones | Idea surgida en la discusión del equipo | Baja complejidad y demo visual, pero es menos original y comparte el mismo problema de Sybil sin resolver. |
+Ninguna se descartó por completo; de cada una tomamos una pieza y descartamos el resto:
+
+| Propuesta | Propuso | Qué tomamos | Qué descartamos y por qué |
+|-----------|---------|-------------|---------------------------|
+| Coviteni (transporte concesionado) | Edgar López Baeza | La lección de diseñar contra el riesgo regulatorio desde el inicio, no después. | El token de participación en utilidades (riesgo LMV/CNBV) y el fondo colectivo de indemnizaciones (riesgo CNSF). Además dependía de un oráculo de datos y de un cobro digital que aún no existe. |
+| Tarjeta de pago autorizado (estilo Kura) | Diego Sevilla Díaz | El concepto central: un emisor autoriza un consumo específico y el beneficiario lo cobra con un código de un solo uso. | Nada del núcleo; lo que faltaba era diferenciarnos de Kura, y lo resolvimos haciéndolo multi-caso (remesa, lealtad, cupón). |
+| Lealtad cultural (IRL × Stellar) | Axel Isaías Rodríguez Frías | El onboarding "escanea QR → wallet en un clic → reclama" y usar el mismo mecanismo para eventos. | Un producto propio de lealtad: el caso de éxito era prestado y el riesgo Sybil seguía abierto. |
+| Remesas con Accesly / Pollar | Fernanda | La infraestructura: Accesly para crear wallets sin fricción y Pollar para liquidar en moneda local. | La remesa libre: requiere licencia de remesadora y la economía unitaria no estaba calculada. |
+| Cupones verificables | Idea surgida en el debate del equipo | El cupón limitado, no duplicable y con datos de canje en tiempo real, como tercer caso de uso. | Un producto de cupones aislado: poco original por sí solo. |
 
 ### Cómo tomamos la decisión
 
-Cada integrante presentó su propuesta. Hicimos una tabla comparando la fortaleza y el riesgo principal de cada idea, debatimos contra los criterios de la Sesión 1 y llegamos a consenso tras el debate por la propuesta de Coviteni, aceptando conscientemente sus riesgos (regulación, oráculo de datos y cobro aún no digital) para trabajarlos en las siguientes semanas.
+Cada integrante presentó su propuesta y armamos una tabla con la fortaleza y el riesgo principal de cada una. En el debate vimos que las ideas se complementaban: una aportaba el caso de uso, otra el onboarding, otra la infraestructura de pagos y otra la advertencia regulatoria. Llegamos por **consenso tras debate** a consolidarlas en una sola idea, tomando como base la tarjeta de pago autorizado.
 
 ---
 
@@ -31,18 +42,18 @@ Cada integrante presentó su propuesta. Hicimos una tabla comparando la fortalez
 
 ### Encabezado
 
-**Proyecto:** CorteClaro _(nombre de trabajo)_
+**Proyecto:** Motor de Autorización Condicionada para Consumo Dirigido en LATAM
 
-**Problema:** en las rutas de transporte concesionado de la CDMX nadie puede verificar cuánto se recaudó en pasajes ni cómo se repartió entre los socios.
+**Problema:** quien entrega dinero con una condición (remesa para un gasto específico, cupón, recompensa de evento) no tiene forma de hacer cumplir ni rastrear esa condición.
 
 ### Equipo y roles
 
 | Integrante | Usuario de GitHub | Rol |
 |------------|-------------------|-----|
 | Edgar López Baeza | _pendiente_ | Producto e investigación del problema |
-| Diego Sevilla Díaz | _pendiente_ | Arquitectura técnica |
-| Axel Isaías Rodríguez Frías | _pendiente_ | Desarrollo y repositorio |
-| Fernanda _(apellidos pendientes)_ | _pendiente_ | Investigación de usuarios y regulación |
+| Diego Sevilla Díaz | _pendiente_ | Arquitectura y contrato Soroban |
+| Axel Isaías Rodríguez Frías | _pendiente_ | Desarrollo frontend y repositorio |
+| Fernanda _(apellidos pendientes)_ | _pendiente_ | Investigación de usuarios, regulación e integraciones (Accesly / Pollar) |
 
 **Responsable de las entregas:** _por definir_
 
@@ -50,77 +61,89 @@ Cada integrante presentó su propuesta. Hicimos una tabla comparando la fortalez
 
 ### Problema y evidencia
 
-**Enunciado:** los socios de las rutas de transporte concesionado no pueden verificar cuánto se recaudó ni cómo se repartió el dinero de los pasajes.
+**Enunciado:** quien entrega dinero para un uso específico pierde el control y la visibilidad de cómo se gasta en cuanto lo entrega.
 
-**Contexto.** Buena parte del transporte público de la CDMX lo operan empresas o agrupaciones concesionarias formadas por muchos socios dueños de unidades. Coviteni (Congreso-Viga-Tepito Nueva Imagen) opera el corredor del Eje 1 y 2 Oriente con autobuses de alta capacidad y, según reportes públicos, transporta alrededor de 40,000 personas al día en 148 paradas ([PortalAutomotriz](https://www.portalautomotriz.com/noticias/transporte/autobuses-panoramicos-de-international-en-el-corredor-del-eje-1-y-2-oriente-del)).
+**Contexto.** En LATAM una gran cantidad de dinero se mueve como "dinero de confianza". México es uno de los mayores receptores de remesas del mundo, y una parte de esos envíos se manda con un propósito concreto: despensa, medicinas, colegiatura. Al mismo tiempo, marcas y organizadores de eventos reparten cupones y puntos esperando generar lealtad real. En los tres casos el patrón es el mismo: quien entrega el valor espera que se use de cierta forma, pero no tiene herramientas para condicionarlo ni para verificarlo.
 
-**Frecuencia y alcance.** El problema ocurre todos los días, en cada corte de caja, y se acumula en cada reparto periódico entre socios. Afecta a todos los socios del corredor y se repite en muchas otras rutas concesionadas de la ciudad con el mismo esquema.
+**Frecuencia y alcance.** Ocurre cada vez que se envía una remesa con un fin específico, se emite un cupón o se entrega una recompensa. Afecta a familias con migrantes, a pequeños comercios y a organizadores de eventos en toda la región.
 
-**Evidencia.** El dato de afluencia proviene de la fuente citada arriba y de la ruta publicada en [Moovit](https://moovitapp.com/index/es-419/transporte_p%C3%BAblico-line-COVITENI-Ciudad_de_Mexico-822-938755-11593508-1). Como usuarios del transporte concesionado observamos que el pasaje se cobra en efectivo al chofer y que no se entrega comprobante, por lo que el registro del viaje no existe fuera de lo que reporta quien cobra. _(Pendiente para la semana 2: documentar al menos dos conversaciones con socios o choferes de la ruta para confirmar cómo se hacen el corte y el reparto.)_
+**Evidencia.**
+
+- Existe un precedente en producción: Kura ya ofrece pagos autorizados para consumo específico en Centroamérica y el Caribe, lo que muestra que el problema es real y que hay usuarios dispuestos a usar una solución.
+- Los cupones de papel o compartidos por redes sociales se pueden copiar con facilidad, y el comercio que los acepta no obtiene datos de quién los canjea.
+- Cobrar una remesa en efectivo implica ir a una sucursal o tienda, hacer fila y mostrar identificación.
+
+_(Pendiente para la semana 2: agregar cifras oficiales de remesas de Banxico con enlace y documentar al menos dos conversaciones con posibles usuarios.)_
 
 ### Usuario y actores
 
-**Usuario principal: el socio dueño de unidades.** Invierte en uno o varios autobuses y recibe una parte de lo recaudado. Necesita saber, con certeza, cuánto generaron sus unidades y cuánto le corresponde, sin depender solo de la palabra de la administración. Hoy lo resuelve asistiendo a cortes y asambleas, revisando bitácoras en papel y, en muchos casos, cobrando una cuota fija al chofer para no tener que confiar en el conteo. Le cuesta dinero (fugas de efectivo no rastreables), tiempo (conciliaciones y asambleas) y conflicto con los demás socios.
+**Usuario principal: el emisor.** Es quien entrega el valor con una condición: un familiar (a menudo en el extranjero) que manda dinero para la despensa de sus padres, una marca que reparte cupones o un organizador que premia a los asistentes de un evento. Necesita definir cuánto, dónde y por cuánto tiempo se puede usar ese valor, y ver después en qué se gastó.
+
+Hoy lo resuelve mandando dinero libre y pidiendo fotos de tickets, prestando su tarjeta, usando tarjetas de sellos en papel o pagando a plataformas de lealtad. Le cuesta **dinero** (comisiones de remesadoras y plataformas, cupones duplicados), **tiempo** (verificar gastos a mano) y **confianza** (no sabe si el dinero se usó como esperaba).
 
 **Otros actores:**
 
-- **Chofer:** cobra el pasaje, maneja el efectivo y entrega la cuenta o cuota al final del turno. Carga con el riesgo de robo y con la sospecha de quedarse con dinero.
-- **Administración de la empresa concesionaria:** concentra el efectivo, hace el corte, paga gastos (combustible, mantenimiento, seguros) y reparte el resto. Es el punto donde hoy se concentra la confianza.
-- **Pasajero:** paga el pasaje; hoy no recibe comprobante y su viaje no queda registrado.
-- **Autoridad (SEMOVI):** otorga la concesión y regula tarifas; necesita datos confiables de afluencia para planear y supervisar el servicio.
-- **Proveedor de cobro digital (futuro):** validadores o tarjeta de movilidad integrada, si la ruta migra al cobro electrónico.
+- **Beneficiario:** recibe el valor. Necesita usarlo fácil, sin filas ni traslados, y sin tener que entender tecnología.
+- **Comercio:** acepta el pago. Necesita recibir su dinero en pesos, rápido, sin manejar criptomonedas, y (en el caso de cupones) saber quién canjea.
+- **Remesadora / banco (hoy):** mueve el dinero y cobra comisión y margen en el tipo de cambio.
+- **Plataforma de lealtad o cupones (hoy):** administra los puntos y se queda con los datos del cliente.
+- **Proveedores de infraestructura (propuesta):** Accesly (creación de wallets con login social) y Pollar (conversión a moneda local).
 
 ### Flujo actual de valor
 
-1. **Pasajero → chofer.** El pasajero paga el pasaje en efectivo al subir. No se emite comprobante. La tarifa está fijada por la autoridad *(obligación normativa: tarifa autorizada por SEMOVI)*.
-2. **Chofer (durante el turno).** El chofer acumula el efectivo en la unidad. No hay registro independiente de cuántos pasajeros subieron.
-3. **Chofer → administración.** Al final del turno el chofer entrega la cuenta completa o una cuota fija pactada; el excedente, si existe, no queda registrado.
-4. **Administración (corte).** La administración cuenta el efectivo, lo anota en bitácoras o en una hoja de cálculo propia y descuenta gastos operativos.
-5. **Administración → banco.** El efectivo se deposita en la cuenta de la empresa *(obligaciones fiscales: facturación y declaración de ingresos ante el SAT)*.
-6. **Administración → socios.** Periódicamente se reparte el remanente entre socios según las unidades o participaciones de cada uno, con base en el corte que reporta la propia administración.
-7. **Socios (verificación).** El socio solo puede revisar el reporte que le entregan; no tiene acceso a una fuente independiente para contrastarlo.
+Tomamos el caso principal, la remesa familiar para un gasto específico:
 
-**Intermediarios explícitos:** chofer (custodia del efectivo), administración (corte y reparto) y banco (custodia del depósito). La confianza se concentra en los pasos 3, 4 y 6.
+1. **Emisor → remesadora.** El familiar en Estados Unidos paga el envío en una sucursal o app. Paga comisión fija más el margen del tipo de cambio. *(Obligación normativa: identificación del remitente y reportes de prevención de lavado de dinero.)*
+2. **Remesadora → corresponsal en México.** La remesadora transfiere a través de bancos o redes corresponsales.
+3. **Corresponsal → beneficiario.** El beneficiario va a un banco o tienda de conveniencia a cobrar en efectivo, o lo recibe en cuenta. *(Obligación normativa: identificación del beneficiario.)*
+4. **Beneficiario → comercio.** El beneficiario gasta el dinero donde decida, en efectivo o con tarjeta.
+5. **Beneficiario → emisor (verificación informal).** El beneficiario manda fotos de tickets por WhatsApp si el emisor las pide.
+
+En cupones y lealtad el flujo equivalente es: marca o evento emite el cupón (papel, código o app) → el cliente lo presenta → el comercio lo acepta y lo marca manualmente → la marca recibe (o no) un reporte del comercio.
+
+**Intermediarios explícitos:** remesadora, corresponsal bancario, punto de pago en efectivo, y en lealtad la plataforma que administra los puntos.
 
 ### Fricciones identificadas
 
-1. **Paso 1–2: no hay registro del viaje.** Causa: el pago en efectivo no deja rastro. Afecta al socio (no sabe cuánto generó su unidad) y a la autoridad (no tiene datos reales de afluencia).
-2. **Paso 3: cuota fija en lugar de cuenta real.** Causa: como no se puede verificar el conteo, se pacta una cuota. Afecta al socio, que pierde el excedente en días buenos, y al chofer, que absorbe la pérdida en días malos.
-3. **Paso 2–3: riesgo de manejar efectivo.** Causa: la unidad carga dinero durante todo el turno. Afecta al chofer (robos y asaltos) y al socio (pérdidas).
-4. **Paso 4: el corte lo hace una sola parte.** Causa: la administración cuenta, registra y guarda el registro. Afecta a todos los socios, que no pueden auditarlo.
-5. **Paso 6: reparto sin reglas visibles.** Causa: el cálculo depende de hojas de cálculo internas. Genera disputas entre socios, asambleas largas y, en casos extremos, salida de socios o conflictos legales.
-6. **Paso 7: el histórico se puede modificar.** Causa: bitácoras en papel o archivos editables. Afecta a cualquier socio que quiera revisar meses anteriores.
+1. **Paso 1: costo del envío.** Causa: comisión fija más margen escondido en el tipo de cambio. En envíos pequeños el costo pesa proporcionalmente más. Afecta al emisor.
+2. **Paso 3: cobro en efectivo.** Causa: el beneficiario tiene que trasladarse a una sucursal, hacer fila y mostrar identificación. Afecta al beneficiario, sobre todo en zonas rurales y semiurbanas.
+3. **Paso 4: sin condición.** Causa: una vez entregado, el dinero es libre; no hay forma de limitarlo a un comercio, a un monto o a una fecha. Afecta al emisor, que no puede asegurar que el dinero se use en lo acordado.
+4. **Paso 5: verificación manual.** Causa: no existe un registro del gasto; la única prueba son fotos de tickets. Afecta al emisor (tiempo y desconfianza) y al beneficiario (tener que justificar cada gasto).
+5. **Cupones: duplicación.** Causa: códigos que se copian o se usan varias veces y validación manual en caja. Afecta a la marca y al comercio.
+6. **Lealtad: datos en manos de terceros.** Causa: la plataforma de lealtad se queda con la información y cobra comisión. Afecta a comercios y organizadores de eventos.
 
 ### Oportunidad e hipótesis
 
-**Oportunidad priorizada:** fricciones 4, 5 y 6 — el corte y el reparto dependen de una sola parte y el histórico se puede alterar.
+**Oportunidad priorizada:** las fricciones 3 y 4 (dinero entregado sin condición y verificación manual), extendidas a la 5 (duplicación de cupones).
 
-**Por qué esta:** es la fricción que genera más conflicto entre socios y la que no se resuelve solo con digitalizar el cobro. Aunque la ruta pase a cobro electrónico, el registro seguiría en manos de la administración o de un proveedor, y los socios seguirían dependiendo de su palabra.
+**Por qué esta:** son el problema común a los tres casos de uso. Las fricciones de costo y cobro (1 y 2) ya las atacan muchas fintech, pero nadie resuelve bien el "dinero con condición". Además, enfocarnos en consumo condicionado y cerrado nos mantiene fuera del modelo de transferencia libre de dinero, que requeriría licencia de remesadora.
 
-**Hipótesis:** si cada cobro (o cada corte diario, mientras el cobro siga en efectivo) se registra en un libro compartido que ningún actor puede editar por su cuenta, y el reparto entre socios se ejecuta con reglas públicas en un contrato inteligente, entonces:
+**Hipótesis:** si el emisor puede crear una autorización programada (monto, comercios válidos y vigencia) que el beneficiario cobra con un código QR de un solo uso, y el comercio recibe el pago en pesos al instante, entonces:
 
-- el socio podría ver en tiempo real lo que generaron sus unidades, sin esperar la asamblea;
-- el reparto se calcularía siempre igual y cualquiera podría comprobarlo;
-- las disputas sobre "cuánto entró" pasarían a ser consultas a un mismo registro;
-- la autoridad podría recibir datos de afluencia confiables sin depender del reporte de la empresa.
+- el emisor sabrá en tiempo real qué se compró, dónde y cuándo, sin pedir fotos de tickets;
+- el beneficiario podrá usar el valor directamente en el comercio, sin ir a cobrar en efectivo;
+- el comercio cobrará en su moneda sin tener que tocar criptomonedas;
+- los cupones no se podrán duplicar porque cada código se marca como usado en el momento del cobro;
+- el emisor podrá cancelar lo no usado y, al vencer, los fondos regresarán solos.
+
+Para el usuario esto se vería como iniciar sesión con Google, sin palabras técnicas ni llaves privadas.
 
 ### Criterio de pertinencia
 
-Una base de datos tradicional no resuelve el problema porque **alguien tendría que administrarla**, y ese alguien sería la misma administración (o un proveedor contratado por ella) en la que hoy los socios no confían del todo. Quien controla la base de datos puede corregir, borrar o reescribir registros, que es exactamente la fricción actual.
+**Por qué no una base de datos tradicional:** una app con base de datos central podría guardar las autorizaciones, pero el emisor, el beneficiario y el comercio tendrían que confiar en que el operador de esa base de datos no modifica saldos, no reutiliza códigos y no cambia el historial. Ese operador se convertiría en un nuevo intermediario que concentra la confianza y probablemente en uno que cobra comisión, que es justo lo que queremos evitar.
 
-Una integración entre sistemas existentes tampoco alcanza: hoy no hay sistemas que integrar (el cobro es en efectivo y el corte está en papel u hojas de cálculo) y, aunque los hubiera, cada parte seguiría confiando en su propia copia.
+**Por qué no una integración entre sistemas existentes:** los bancos, remesadoras y plataformas de lealtad no comparten un mismo registro; integrar sus sistemas requeriría acuerdos entre cada uno y el emisor seguiría viendo solo lo que cada empresa decida reportarle.
 
-El caso se apoya en dos criterios de la Sesión 1:
+El caso se apoya en los tres criterios de la Sesión 1:
 
-1. **Varias partes que no confían entre sí necesitan compartir un mismo registro.** Socios, administración, choferes y autoridad tienen incentivos distintos y todos necesitan ver los mismos números de recaudación.
-2. **El histórico no puede alterarse.** Un corte registrado debe quedarse como quedó; si hay un ajuste, debe verse como una nueva transacción, no como una edición del pasado.
-
-Adicionalmente, las reglas de reparto en un contrato inteligente **reducen el papel de la administración como intermediario que concentra la confianza**: sigue operando la ruta, pero ya no es la única fuente de verdad sobre el dinero.
+1. **Se elimina un intermediario que concentra la confianza.** Las reglas (monto, comercio, vigencia, código de un solo uso) viven en un contrato Soroban en Stellar y se cumplen automáticamente; nadie puede cambiarlas a escondidas.
+2. **El histórico no puede alterarse.** Cada autorización, cobro y cancelación queda registrada de forma inmutable y el emisor la puede consultar siempre.
+3. **Partes que no confían entre sí comparten un registro.** Emisor, beneficiario y comercio consultan la misma fuente, incluso si el proveedor de wallets o de conversión a pesos falla o se cambia.
 
 ### Supuestos y riesgos
 
-**Supuesto 1: los datos de recaudación pueden entrar al registro de forma confiable (problema del oráculo).** Mientras el cobro sea en efectivo, el registro solo es tan bueno como el dato que alguien captura. Lo invalidaría que no exista una fuente independiente (validador electrónico, contador de pasajeros o tarjeta de movilidad). Mitigación a explorar: empezar registrando cortes firmados por más de una parte (chofer y administración) y avanzar hacia el cobro digital.
+**Supuesto 1: el modelo de consumo condicionado y cerrado no requiere licencia de remesadora.** La hipótesis depende de que limitar el uso a comercios específicos y a consumo (no a retiro libre de efectivo) nos mantenga fuera de la regulación de transferencias de dinero. **Lo invalidaría** que la autoridad (CNBV / Banxico) considere que cualquier valor que cruza la frontera es una remesa, aunque tenga condiciones. Es la misma lección que nos dejó la propuesta de Coviteni: cambiarle el nombre a un instrumento no cambia su naturaleza legal.
 
-**Supuesto 2: los socios y la administración aceptarían la transparencia.** La hipótesis supone que al menos una parte de los socios quiere visibilidad y tiene fuerza para exigirla. Lo invalidaría que la administración o un grupo de socios se beneficie de la opacidad actual y bloquee la adopción.
+**Supuesto 2: Accesly y Pollar (u opciones equivalentes) funcionan en México con la calidad necesaria.** Necesitamos crear wallets con login social en segundos, pagar las comisiones de red por el usuario y liquidar en pesos al comercio en pocos segundos. **Lo invalidaría** que estos proveedores, que todavía son empresas tempranas, no tengan cobertura en México o sean demasiado caros. Por eso el contrato se diseña independiente de ellos, para poder cambiarlos.
 
-**Supuesto 3: el modelo cabe dentro del marco legal.** Registrar ingresos y repartirlos no debería requerir autorización especial, pero si el diseño se acerca a representar participaciones de los socios como activos transferibles, podría caer bajo la Ley del Mercado de Valores (LMV). Lo invalidaría que cualquier versión útil del producto requiera una autorización regulatoria que el equipo no puede obtener. Mitigación: limitar el alcance a registro y reparto, sin tokenizar la propiedad de las unidades.
+**Supuesto 3: los comercios aceptarían escanear un QR y cobrar por esta vía.** **Lo invalidaría** que la comisión o la fricción de adopción sea mayor que el beneficio de recibir ventas dirigidas. Otro riesgo abierto es el abuso con cuentas múltiples (Sybil) en los casos de lealtad y cupones, que tendremos que mitigar en el diseño.
