@@ -2,7 +2,7 @@
 
 **Nombre:** María Fernanda Rivera Islas
 
-**Usuario de GitHub:** _pendiente_
+**Usuario de GitHub:** frislas
 
 ---
 

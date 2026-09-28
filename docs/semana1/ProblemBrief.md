@@ -51,9 +51,9 @@ Cada integrante presentó su propuesta y armamos una tabla con la fortaleza y el
 | Integrante | Apodo | Usuario de GitHub | Rol |
 |------------|-------|-------------------|-----|
 | Edgar López Baeza | Alfa | [ALFA117](https://github.com/ALFA117) | Diseñador UX/UI |
-| Axel Isaías Rodríguez Frías | Morita | _pendiente_ | Project Manager (PM) |
+| Axel Isaías Rodríguez Frías | Morita | [Axl5136](https://github.com/Axl5136) | Project Manager (PM) |
 | Diego Sevilla Díaz | Onii | [Oni7u7](https://github.com/Oni7u7) | Software Engineer |
-| María Fernanda Rivera Islas | Fer | _pendiente_ | Speaker (presentación y pitch del proyecto) |
+| María Fernanda Rivera Islas | Fer | [frislas](https://github.com/frislas) | Speaker (presentación y pitch del proyecto) |
 
 **Responsable de las entregas:** Axel Isaías Rodríguez Frías (PM).
 

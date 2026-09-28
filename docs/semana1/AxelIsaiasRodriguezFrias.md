@@ -2,7 +2,7 @@
 
 **Nombre:** Axel Isaías Rodríguez Frías
 
-**Usuario de GitHub:** _pendiente_
+**Usuario de GitHub:** Axl5136
 
 ---
 
