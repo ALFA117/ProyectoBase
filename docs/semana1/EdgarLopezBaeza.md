@@ -2,7 +2,7 @@
 
 **Nombre:** Edgar López Baeza
 
-**Usuario de GitHub:** _pendiente_
+**Usuario de GitHub:** ALFA117
 
 ---
 
