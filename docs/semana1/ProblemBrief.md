@@ -6,7 +6,7 @@
 
 Quien entrega dinero con una condición (un familiar que manda dinero para la despensa, una marca que reparte cupones, un evento que da recompensas) pierde el control y la visibilidad de cómo se usa en cuanto el dinero cambia de manos, y quien lo recibe enfrenta filas, comisiones y cupones duplicados para poder usarlo.
 
-**Propuesto por:** propuesta consolidada del equipo. El núcleo viene de la idea de **Diego Sevilla Díaz** (tarjeta de pago autorizado) y se integró con piezas de las propuestas de **Axel Isaías Rodríguez Frías** (lealtad cultural), **Fernanda** (remesas), la idea de cupones que surgió en el debate y la lección de riesgo regulatorio que dejó la propuesta de **Edgar López Baeza** (Coviteni).
+**Propuesto por:** propuesta consolidada del equipo. El núcleo viene de la idea de **Diego Sevilla Díaz** (tarjeta de pago autorizado) y se integró con piezas de las propuestas de **Axel Isaías Rodríguez Frías** (lealtad cultural), **María Fernanda Rivera Islas** (remesas), la idea de cupones que surgió en el debate y la lección de riesgo regulatorio que dejó la propuesta de **Edgar López Baeza** (Coviteni).
 
 ### Por qué elegimos este
 
@@ -29,7 +29,7 @@ Ninguna se descartó por completo; de cada una tomamos una pieza y descartamos e
 | Coviteni (transporte concesionado) | Edgar López Baeza | La lección de diseñar contra el riesgo regulatorio desde el inicio, no después. | El token de participación en utilidades (riesgo LMV/CNBV) y el fondo colectivo de indemnizaciones (riesgo CNSF). Además dependía de un oráculo de datos y de un cobro digital que aún no existe. |
 | Tarjeta de pago autorizado (estilo Kura) | Diego Sevilla Díaz | El concepto central: un emisor autoriza un consumo específico y el beneficiario lo cobra con un código de un solo uso. | Nada del núcleo; lo que faltaba era diferenciarnos de Kura, y lo resolvimos haciéndolo multi-caso (remesa, lealtad, cupón). |
 | Lealtad cultural (IRL × Stellar) | Axel Isaías Rodríguez Frías | El onboarding "escanea QR → wallet en un clic → reclama" y usar el mismo mecanismo para eventos. | Un producto propio de lealtad: el caso de éxito era prestado y el riesgo Sybil seguía abierto. |
-| Remesas con Accesly / Pollar | Fernanda | La infraestructura: Accesly para crear wallets sin fricción y Pollar para liquidar en moneda local. | La remesa libre: requiere licencia de remesadora y la economía unitaria no estaba calculada. |
+| Remesas con Accesly / Pollar | María Fernanda Rivera Islas | La infraestructura: Accesly para crear wallets sin fricción y Pollar para liquidar en moneda local. | La remesa libre: requiere licencia de remesadora y la economía unitaria no estaba calculada. |
 | Cupones verificables | Idea surgida en el debate del equipo | El cupón limitado, no duplicable y con datos de canje en tiempo real, como tercer caso de uso. | Un producto de cupones aislado: poco original por sí solo. |
 
 ### Cómo tomamos la decisión
@@ -48,14 +48,14 @@ Cada integrante presentó su propuesta y armamos una tabla con la fortaleza y el
 
 ### Equipo y roles
 
-| Integrante | Usuario de GitHub | Rol |
-|------------|-------------------|-----|
-| Edgar López Baeza | _pendiente_ | Producto e investigación del problema |
-| Diego Sevilla Díaz | _pendiente_ | Arquitectura y contrato Soroban |
-| Axel Isaías Rodríguez Frías | _pendiente_ | Desarrollo frontend y repositorio |
-| Fernanda _(apellidos pendientes)_ | _pendiente_ | Investigación de usuarios, regulación e integraciones (Accesly / Pollar) |
+| Integrante | Apodo | Usuario de GitHub | Rol |
+|------------|-------|-------------------|-----|
+| Edgar López Baeza | Alfa | _pendiente_ | Diseñador UX/UI |
+| Axel Isaías Rodríguez Frías | Morita | _pendiente_ | Project Manager (PM) |
+| Diego Sevilla Díaz | Onii | _pendiente_ | Software Engineer |
+| María Fernanda Rivera Islas | Fer | _pendiente_ | Speaker (presentación y pitch del proyecto) |
 
-**Responsable de las entregas:** _por definir_
+**Responsable de las entregas:** Axel Isaías Rodríguez Frías (PM).
 
 **Canal de coordinación interna:** grupo de WhatsApp del equipo.
 

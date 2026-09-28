@@ -1,6 +1,6 @@
 # Propuesta individual
 
-**Nombre:** Fernanda _(apellidos pendientes)_
+**Nombre:** María Fernanda Rivera Islas
 
 **Usuario de GitHub:** _pendiente_
 
