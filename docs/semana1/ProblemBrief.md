@@ -4,37 +4,36 @@
 
 ### Problema elegido
 
-Quien entrega dinero con una condición (un familiar que manda dinero para la despensa, una marca que reparte cupones, un evento que da recompensas) pierde el control y la visibilidad de cómo se usa en cuanto el dinero cambia de manos, y quien lo recibe enfrenta filas, comisiones y cupones duplicados para poder usarlo.
+Un pasajero, un inspector o una aseguradora no pueden saber, en el momento, si el microbús o autobús de transporte concesionado tiene su mantenimiento vigente, y el socio dueño de la unidad no tiene una forma fácil y confiable de demostrar que cumple.
 
-**Propuesto por:** propuesta consolidada del equipo. El núcleo viene de la idea de **Diego Sevilla Díaz** (tarjeta de pago autorizado) y se integró con piezas de las propuestas de **Axel Isaías Rodríguez Frías** (lealtad cultural), **María Fernanda Rivera Islas** (remesas), la idea de cupones que surgió en el debate y la lección de riesgo regulatorio que dejó la propuesta de **Edgar López Baeza** (Coviteni).
+**Propuesto por:** Edgar López Baeza, como evolución de su propuesta original sobre el transporte concesionado (Coviteni).
 
 ### Por qué elegimos este
 
-Al comparar las cinco ideas notamos que tres de ellas (remesas, lealtad y cupones) tenían el mismo problema de fondo: **dinero o valor que se entrega con una condición que hoy nadie puede hacer cumplir ni rastrear**. En lugar de escoger una sola, elegimos el problema común.
+Conserva lo mejor de la propuesta de Coviteni (un problema real, cotidiano y poco explorado en hackathons, dentro del transporte concesionado de la CDMX) pero cambia el enfoque: en lugar de repartir dinero, que nos acercaba a regulación financiera (LMV / CNBV), registramos **evidencia de mantenimiento**, que no es un instrumento financiero.
 
-Según los criterios de la Sesión 1:
+Frente a los criterios de la Sesión 1:
 
-- **Eliminar un intermediario que concentra la confianza:** hoy el emisor tiene que confiar en el beneficiario, en la remesadora o en la plataforma de lealtad; con reglas programadas, la condición se cumple sola.
-- **Histórico inalterable:** el emisor necesita un registro de qué se compró, dónde y cuándo, que nadie pueda editar.
-- **Partes que no confían entre sí comparten un registro:** emisor, beneficiario y comercio consultan la misma fuente.
+- **Partes que no confían entre sí comparten un registro:** socio, taller, aseguradora, autoridad y pasajero necesitan ver el mismo expediente de la unidad.
+- **Histórico inalterable:** un servicio registrado no puede borrarse ni "maquillarse" después de un accidente.
+- **Eliminar un intermediario que concentra la confianza:** hoy la única prueba es un papel o una calcomanía que cualquiera puede copiar.
 
-Además es la opción con menor riesgo regulatorio: al tratarse de consumo cerrado y condicionado (no transferencia libre de dinero), no requiere licencia de remesadora.
+Además es la opción más fácil de demostrar físicamente: un ESP32 con pantalla que muestra un QR que cambia cada pocos segundos.
 
 ### Propuestas descartadas
 
-Ninguna se descartó por completo; de cada una tomamos una pieza y descartamos el resto:
-
-| Propuesta | Propuso | Qué tomamos | Qué descartamos y por qué |
-|-----------|---------|-------------|---------------------------|
-| Coviteni (transporte concesionado) | Edgar López Baeza | La lección de diseñar contra el riesgo regulatorio desde el inicio, no después. | El token de participación en utilidades (riesgo LMV/CNBV) y el fondo colectivo de indemnizaciones (riesgo CNSF). Además dependía de un oráculo de datos y de un cobro digital que aún no existe. |
-| Tarjeta de pago autorizado (estilo Kura) | Diego Sevilla Díaz | El concepto central: un emisor autoriza un consumo específico y el beneficiario lo cobra con un código de un solo uso. | Nada del núcleo; lo que faltaba era diferenciarnos de Kura, y lo resolvimos haciéndolo multi-caso (remesa, lealtad, cupón). |
-| Lealtad cultural (IRL × Stellar) | Axel Isaías Rodríguez Frías | El onboarding "escanea QR → wallet en un clic → reclama" y usar el mismo mecanismo para eventos. | Un producto propio de lealtad: el caso de éxito era prestado y el riesgo Sybil seguía abierto. |
-| Remesas con Accesly / Pollar | María Fernanda Rivera Islas | La infraestructura: Accesly para crear wallets sin fricción y Pollar para liquidar en moneda local. | La remesa libre: requiere licencia de remesadora y la economía unitaria no estaba calculada. |
-| Cupones verificables | Idea surgida en el debate del equipo | El cupón limitado, no duplicable y con datos de canje en tiempo real, como tercer caso de uso. | Un producto de cupones aislado: poco original por sí solo. |
+| Propuesta | Propuso | Motivo del descarte |
+|-----------|---------|---------------------|
+| Recaudación y reparto transparente en el corredor Coviteni | Edgar López Baeza | No se descartó el sector sino el enfoque: repartir utilidades o crear un fondo colectivo implicaba riesgo LMV / CNBV / CNSF, dependía de un oráculo de datos de recaudación y de un cobro digital que aún no existe. QRuta es su evolución. |
+| Tarjeta de pago autorizado (estilo Kura) | Diego Sevilla Díaz | Precedente real e infraestructura disponible, pero no encontramos cómo diferenciarnos de Kura. |
+| Lealtad cultural (IRL × Stellar) | Axel Isaías Rodríguez Frías | Fácil de demostrar, pero el caso de éxito era prestado y el abuso con cuentas múltiples (Sybil) quedaba sin resolver. |
+| Remesas con Accesly / Pollar | María Fernanda Rivera Islas | Requiere licencia de remesadora, la economía unitaria no estaba calculada y dependía de dos startups tempranas. |
+| Cupones verificables | Idea surgida en el debate del equipo | Poco original por sí sola y con el mismo riesgo Sybil. |
+| Motor de autorización condicionada (consolidación de las ideas de Diego, Axel, María Fernanda y cupones) | Equipo | Fue nuestra primera elección. La descartamos porque competía directamente con productos que ya existen y el riesgo regulatorio de mover dinero seguía presente. |
 
 ### Cómo tomamos la decisión
 
-Cada integrante presentó su propuesta y armamos una tabla con la fortaleza y el riesgo principal de cada una. En el debate vimos que las ideas se complementaban: una aportaba el caso de uso, otra el onboarding, otra la infraestructura de pagos y otra la advertencia regulatoria. Llegamos por **consenso tras debate** a consolidarlas en una sola idea, tomando como base la tarjeta de pago autorizado.
+Cada integrante presentó su propuesta y comparamos fortaleza y riesgo principal de cada una. Primero llegamos a consenso en consolidar cuatro ideas en un motor de autorización condicionada. Al revisarla de nuevo contra los criterios de la Sesión 1, exploramos variantes del transporte concesionado que no movieran dinero y evaluamos cada una con los tres criterios. El QR rotativo con expediente de mantenimiento fue la mejor evaluada y el equipo la eligió por **consenso tras debate**.
 
 ---
 
@@ -42,9 +41,9 @@ Cada integrante presentó su propuesta y armamos una tabla con la fortaleza y el
 
 ### Encabezado
 
-**Proyecto:** Motor de Autorización Condicionada para Consumo Dirigido en LATAM
+**Proyecto:** QRuta
 
-**Problema:** quien entrega dinero con una condición (remesa para un gasto específico, cupón, recompensa de evento) no tiene forma de hacer cumplir ni rastrear esa condición.
+**Problema:** nadie puede verificar en el momento si una unidad de transporte concesionado tiene su mantenimiento al día, y el socio no puede demostrar que cumple.
 
 ### Equipo y roles
 
@@ -61,89 +60,80 @@ Cada integrante presentó su propuesta y armamos una tabla con la fortaleza y el
 
 ### Problema y evidencia
 
-**Enunciado:** quien entrega dinero para un uso específico pierde el control y la visibilidad de cómo se gasta en cuanto lo entrega.
+**Enunciado:** no existe una forma rápida y confiable de verificar, dentro de la unidad, si un vehículo de transporte concesionado tiene su mantenimiento vigente.
 
-**Contexto.** En LATAM una gran cantidad de dinero se mueve como "dinero de confianza". México es uno de los mayores receptores de remesas del mundo, y una parte de esos envíos se manda con un propósito concreto: despensa, medicinas, colegiatura. Al mismo tiempo, marcas y organizadores de eventos reparten cupones y puntos esperando generar lealtad real. En los tres casos el patrón es el mismo: quien entrega el valor espera que se use de cierta forma, pero no tiene herramientas para condicionarlo ni para verificarlo.
+**Contexto.** En la CDMX el transporte colectivo concesionado (microbuses, vagonetas y autobuses) está obligado a pasar cada año la **Revista Vehicular** de SEMOVI, que incluye una inspección físico-mecánica de frenos, llantas, suspensión, dirección, carrocería, equipo de seguridad y seguro vehicular ([SEMOVI – Revista Vehicular Ruta](https://www.semovi.cdmx.gob.mx/tramites-y-servicios/transporte-de-pasajeros/revista-ruta); [El Universal](https://www.eluniversal.com.mx/metropoli/semovi-anuncia-periodo-para-tramitar-revista-vehicular-de-unidades-de-transporte-publico-colectivo-de-cdmx/)). La propia SEMOVI ha anunciado mecanismos de verificación y seguimiento calendarizado del mantenimiento básico y revisiones especiales a microbuses con más de 10 años de antigüedad ([El Financiero](https://www.elfinanciero.com.mx/cdmx/2023/02/04/adios-a-micros-viejos-de-cdmx-este-es-el-operativo-para-que-continuen-circulando/); [La Crónica](https://www.cronica.com.mx/metropoli/evaluara-semovi-microbuses-10-anos-antigueedad.html)).
 
-**Frecuencia y alcance.** Ocurre cada vez que se envía una remesa con un fin específico, se emite un cupón o se entrega una recompensa. Afecta a familias con migrantes, a pequeños comercios y a organizadores de eventos en toda la región.
+**Frecuencia y alcance.** La revisión oficial es anual, pero el desgaste es diario. Entre una revista y otra no hay forma de saber, desde la calle, si la unidad recibió servicio. El problema alcanza a todas las rutas concesionadas y a los millones de viajes diarios que realizan.
 
-**Evidencia.**
-
-- Existe un precedente en producción: Kura ya ofrece pagos autorizados para consumo específico en Centroamérica y el Caribe, lo que muestra que el problema es real y que hay usuarios dispuestos a usar una solución.
-- Los cupones de papel o compartidos por redes sociales se pueden copiar con facilidad, y el comercio que los acepta no obtiene datos de quién los canjea.
-- Cobrar una remesa en efectivo implica ir a una sucursal o tienda, hacer fila y mostrar identificación.
-
-_(Pendiente para la semana 2: agregar cifras oficiales de remesas de Banxico con enlace y documentar al menos dos conversaciones con posibles usuarios.)_
+**Evidencia.** Las fuentes oficiales anteriores muestran que la autoridad ya considera el mantenimiento un problema a supervisar y que hoy la verificación depende de que la unidad acuda a un módulo físico. _(Pendiente para la semana 2: documentar al menos dos conversaciones con socios, choferes o talleres sobre cómo registran hoy el mantenimiento.)_
 
 ### Usuario y actores
 
-**Usuario principal: el emisor.** Es quien entrega el valor con una condición: un familiar (a menudo en el extranjero) que manda dinero para la despensa de sus padres, una marca que reparte cupones o un organizador que premia a los asistentes de un evento. Necesita definir cuánto, dónde y por cuánto tiempo se puede usar ese valor, y ver después en qué se gastó.
-
-Hoy lo resuelve mandando dinero libre y pidiendo fotos de tickets, prestando su tarjeta, usando tarjetas de sellos en papel o pagando a plataformas de lealtad. Le cuesta **dinero** (comisiones de remesadoras y plataformas, cupones duplicados), **tiempo** (verificar gastos a mano) y **confianza** (no sabe si el dinero se usó como esperaba).
+**Usuario principal: el socio dueño de la unidad.** Invierte en uno o varios vehículos y es responsable de que estén en condiciones. Necesita **demostrar** que cumple: ante la autoridad en una inspección, ante la aseguradora al contratar o reclamar una póliza y ante los pasajeros. Hoy lo resuelve guardando facturas y notas del taller en papel, mostrando la constancia de la revista anual y acudiendo en persona a trámites. Le cuesta **tiempo** (reunir papeles y trasladar la unidad), **dinero** (la revista cuesta alrededor de $2,133 MXN más los días sin operar) y **credibilidad**: aunque haga todo bien, su palabra vale lo mismo que la de quien no lo hace.
 
 **Otros actores:**
 
-- **Beneficiario:** recibe el valor. Necesita usarlo fácil, sin filas ni traslados, y sin tener que entender tecnología.
-- **Comercio:** acepta el pago. Necesita recibir su dinero en pesos, rápido, sin manejar criptomonedas, y (en el caso de cupones) saber quién canjea.
-- **Remesadora / banco (hoy):** mueve el dinero y cobra comisión y margen en el tipo de cambio.
-- **Plataforma de lealtad o cupones (hoy):** administra los puntos y se queda con los datos del cliente.
-- **Proveedores de infraestructura (propuesta):** Accesly (creación de wallets con login social) y Pollar (conversión a moneda local).
+- **Taller mecánico:** realiza el servicio y hoy emite una nota o factura que se puede perder o falsificar.
+- **Chofer:** opera la unidad y es el primero afectado si falla.
+- **Pasajero:** quiere viajar seguro, pero no tiene información para elegir.
+- **Inspector de SEMOVI:** necesita verificar cumplimiento rápido en la calle, no solo en módulos.
+- **Aseguradora:** necesita saber el historial real de mantenimiento para calcular riesgo y resolver siniestros.
 
 ### Flujo actual de valor
 
-Tomamos el caso principal, la remesa familiar para un gasto específico:
+Lo que se mueve aquí es **información de cumplimiento**:
 
-1. **Emisor → remesadora.** El familiar en Estados Unidos paga el envío en una sucursal o app. Paga comisión fija más el margen del tipo de cambio. *(Obligación normativa: identificación del remitente y reportes de prevención de lavado de dinero.)*
-2. **Remesadora → corresponsal en México.** La remesadora transfiere a través de bancos o redes corresponsales.
-3. **Corresponsal → beneficiario.** El beneficiario va a un banco o tienda de conveniencia a cobrar en efectivo, o lo recibe en cuenta. *(Obligación normativa: identificación del beneficiario.)*
-4. **Beneficiario → comercio.** El beneficiario gasta el dinero donde decida, en efectivo o con tarjeta.
-5. **Beneficiario → emisor (verificación informal).** El beneficiario manda fotos de tickets por WhatsApp si el emisor las pide.
+1. **Socio → taller.** El socio lleva la unidad a servicio (frenos, llantas, suspensión).
+2. **Taller → socio.** El taller entrega una nota, factura o simplemente de palabra. El registro queda en papel o en el sistema propio del taller.
+3. **Socio (archivo).** El socio guarda los comprobantes, si los guarda.
+4. **Socio → SEMOVI (una vez al año).** La unidad acude a un módulo para la Revista Vehicular y la inspección físico-mecánica; se paga el derecho y se obtiene la constancia. *(Obligación normativa: Revista Vehicular anual de SEMOVI.)*
+5. **Socio → aseguradora.** Se contrata o renueva el seguro con base en lo que el socio declara. *(Obligación normativa: seguro vehicular obligatorio para transporte público.)*
+6. **Inspector → unidad (en calle).** Si hay operativo, el inspector revisa documentos físicos en el momento.
+7. **Pasajero.** No recibe ninguna información; sube sin saber el estado de la unidad.
 
-En cupones y lealtad el flujo equivalente es: marca o evento emite el cupón (papel, código o app) → el cliente lo presenta → el comercio lo acepta y lo marca manualmente → la marca recibe (o no) un reporte del comercio.
-
-**Intermediarios explícitos:** remesadora, corresponsal bancario, punto de pago en efectivo, y en lealtad la plataforma que administra los puntos.
+**Intermediarios explícitos:** taller (emite la evidencia), módulo de SEMOVI (certifica una vez al año) y los documentos en papel (único soporte de la información).
 
 ### Fricciones identificadas
 
-1. **Paso 1: costo del envío.** Causa: comisión fija más margen escondido en el tipo de cambio. En envíos pequeños el costo pesa proporcionalmente más. Afecta al emisor.
-2. **Paso 3: cobro en efectivo.** Causa: el beneficiario tiene que trasladarse a una sucursal, hacer fila y mostrar identificación. Afecta al beneficiario, sobre todo en zonas rurales y semiurbanas.
-3. **Paso 4: sin condición.** Causa: una vez entregado, el dinero es libre; no hay forma de limitarlo a un comercio, a un monto o a una fecha. Afecta al emisor, que no puede asegurar que el dinero se use en lo acordado.
-4. **Paso 5: verificación manual.** Causa: no existe un registro del gasto; la única prueba son fotos de tickets. Afecta al emisor (tiempo y desconfianza) y al beneficiario (tener que justificar cada gasto).
-5. **Cupones: duplicación.** Causa: códigos que se copian o se usan varias veces y validación manual en caja. Afecta a la marca y al comercio.
-6. **Lealtad: datos en manos de terceros.** Causa: la plataforma de lealtad se queda con la información y cobra comisión. Afecta a comercios y organizadores de eventos.
+1. **Paso 2: evidencia frágil.** Causa: la nota del taller es papel o un archivo privado que se pierde o se altera. Afecta al socio y a la aseguradora.
+2. **Paso 3: sin historial confiable.** Causa: cada socio archiva como puede y el historial se puede reconstruir "a modo" después de un accidente. Afecta a la aseguradora, a la autoridad y a las víctimas de un siniestro.
+3. **Paso 4: verificación solo una vez al año.** Causa: la inspección depende de llevar la unidad a un módulo físico. Entre revistas no hay visibilidad. Afecta a pasajeros y autoridad.
+4. **Pasos 4 y 6: documentos copiables.** Causa: constancias, engomados y calcomanías se pueden fotocopiar o pasar de una unidad a otra. Afecta a la autoridad y a los socios que sí cumplen.
+5. **Paso 6: inspección lenta.** Causa: el inspector revisa papeles a mano. Afecta al chofer (tiempo detenido) y al inspector.
+6. **Paso 7: pasajero sin información.** Causa: no existe ningún indicador visible y verificable en la unidad. Afecta al pasajero.
 
 ### Oportunidad e hipótesis
 
-**Oportunidad priorizada:** las fricciones 3 y 4 (dinero entregado sin condición y verificación manual), extendidas a la 5 (duplicación de cupones).
+**Oportunidad priorizada:** fricciones 2 y 4 — el historial de mantenimiento no es confiable y las pruebas de cumplimiento se pueden copiar.
 
-**Por qué esta:** son el problema común a los tres casos de uso. Las fricciones de costo y cobro (1 y 2) ya las atacan muchas fintech, pero nadie resuelve bien el "dinero con condición". Además, enfocarnos en consumo condicionado y cerrado nos mantiene fuera del modelo de transferencia libre de dinero, que requeriría licencia de remesadora.
+**Por qué esta:** son las que hacen que cumplir no valga la pena. Si cualquiera puede fotocopiar una constancia, el socio que sí invierte en mantenimiento no tiene cómo distinguirse. Resolverlas también mejora la inspección en calle (fricción 5) y le da información al pasajero (fricción 6).
 
-**Hipótesis:** si el emisor puede crear una autorización programada (monto, comercios válidos y vigencia) que el beneficiario cobra con un código QR de un solo uso, y el comercio recibe el pago en pesos al instante, entonces:
+**Hipótesis:** si cada servicio queda registrado por un taller autorizado en un expediente que nadie puede borrar, y cada unidad lleva un dispositivo ESP32 con pantalla que muestra un **QR firmado que cambia cada 30 segundos**, entonces:
 
-- el emisor sabrá en tiempo real qué se compró, dónde y cuándo, sin pedir fotos de tickets;
-- el beneficiario podrá usar el valor directamente en el comercio, sin ir a cobrar en efectivo;
-- el comercio cobrará en su moneda sin tener que tocar criptomonedas;
-- los cupones no se podrán duplicar porque cada código se marca como usado en el momento del cobro;
-- el emisor podrá cancelar lo no usado y, al vencer, los fondos regresarán solos.
+- el inspector o la aseguradora escanean y en segundos ven si la unidad está **vigente**, qué taller hizo el último servicio y cuándo vence;
+- una foto del QR deja de servir en segundos y no se puede pegar en otra unidad;
+- el socio que cumple puede **demostrarlo** sin cargar papeles y eso puede traducirse en mejores condiciones con su aseguradora;
+- el pasajero que quiera puede verificar la unidad antes de subir.
 
-Para el usuario esto se vería como iniciar sesión con Google, sin palabras técnicas ni llaves privadas.
+Para el usuario esto se ve como escanear un QR con la cámara del celular, sin instalar nada.
 
 ### Criterio de pertinencia
 
-**Por qué no una base de datos tradicional:** una app con base de datos central podría guardar las autorizaciones, pero el emisor, el beneficiario y el comercio tendrían que confiar en que el operador de esa base de datos no modifica saldos, no reutiliza códigos y no cambia el historial. Ese operador se convertiría en un nuevo intermediario que concentra la confianza y probablemente en uno que cobra comisión, que es justo lo que queremos evitar.
+**Por qué no una base de datos tradicional:** si el expediente vive en una base de datos del socio, del taller o de una empresa, quien la administra puede editar o borrar registros, justo después de un accidente, que es cuando más importa el historial. La aseguradora y la autoridad tendrían que confiar en esa empresa, que se vuelve un intermediario que concentra la confianza.
 
-**Por qué no una integración entre sistemas existentes:** los bancos, remesadoras y plataformas de lealtad no comparten un mismo registro; integrar sus sistemas requeriría acuerdos entre cada uno y el emisor seguiría viendo solo lo que cada empresa decida reportarle.
+**Por qué no una integración entre sistemas existentes:** la mayoría de los talleres que dan servicio a microbuses no tienen sistemas digitales, y SEMOVI, aseguradoras y talleres no comparten un registro común. Integrarlos requeriría acuerdos uno a uno y cada parte seguiría viendo solo su copia.
 
 El caso se apoya en los tres criterios de la Sesión 1:
 
-1. **Se elimina un intermediario que concentra la confianza.** Las reglas (monto, comercio, vigencia, código de un solo uso) viven en un contrato Soroban en Stellar y se cumplen automáticamente; nadie puede cambiarlas a escondidas.
-2. **El histórico no puede alterarse.** Cada autorización, cobro y cancelación queda registrada de forma inmutable y el emisor la puede consultar siempre.
-3. **Partes que no confían entre sí comparten un registro.** Emisor, beneficiario y comercio consultan la misma fuente, incluso si el proveedor de wallets o de conversión a pesos falla o se cambia.
+1. **Varias partes que no confían entre sí comparten un registro.** Socio, taller, aseguradora, autoridad y pasajero tienen incentivos distintos y todos consultan el mismo expediente en Stellar.
+2. **El histórico no puede alterarse.** Cada servicio queda firmado por el taller que lo realizó; un error se corrige con un nuevo registro, nunca editando el anterior.
+3. **Se elimina un intermediario que concentra la confianza.** La llave pública de cada dispositivo se registra en un contrato Soroban, así que cualquiera puede verificar la firma del QR sin depender de nuestro servidor.
 
 ### Supuestos y riesgos
 
-**Supuesto 1: el modelo de consumo condicionado y cerrado no requiere licencia de remesadora.** La hipótesis depende de que limitar el uso a comercios específicos y a consumo (no a retiro libre de efectivo) nos mantenga fuera de la regulación de transferencias de dinero. **Lo invalidaría** que la autoridad (CNBV / Banxico) considere que cualquier valor que cruza la frontera es una remesa, aunque tenga condiciones. Es la misma lección que nos dejó la propuesta de Coviteni: cambiarle el nombre a un instrumento no cambia su naturaleza legal.
+**Supuesto 1: los talleres registrarán servicios reales.** La cadena garantiza que el registro no se borra, pero no que el servicio se haya hecho de verdad. **Lo invalidaría** que los talleres registren servicios falsos a cambio de dinero. Mitigación: solo talleres autorizados pueden registrar, cada registro queda firmado por el taller y se puede adjuntar evidencia (fotos, factura) con su hash en cadena, de modo que un taller tramposo arriesga su reputación de forma permanente.
 
-**Supuesto 2: Accesly y Pollar (u opciones equivalentes) funcionan en México con la calidad necesaria.** Necesitamos crear wallets con login social en segundos, pagar las comisiones de red por el usuario y liquidar en pesos al comercio en pocos segundos. **Lo invalidaría** que estos proveedores, que todavía son empresas tempranas, no tengan cobertura en México o sean demasiado caros. Por eso el contrato se diseña independiente de ellos, para poder cambiarlos.
+**Supuesto 2: alguien tiene incentivo para escanear.** El pasajero rara vez va a escanear el QR. **Lo invalidaría** que ni la aseguradora ni la autoridad lo adopten como parte de su proceso. Por eso el cliente principal que buscamos validar es la **aseguradora** (y en segundo lugar SEMOVI), y el socio como quien quiere demostrar cumplimiento.
 
-**Supuesto 3: los comercios aceptarían escanear un QR y cobrar por esta vía.** **Lo invalidaría** que la comisión o la fricción de adopción sea mayor que el beneficio de recibir ventas dirigidas. Otro riesgo abierto es el abuso con cuentas múltiples (Sybil) en los casos de lealtad y cupones, que tendremos que mitigar en el diseño.
+**Supuesto 3: el dispositivo no se puede clonar ni retransmitir.** El QR rotativo evita fotografías, pero alguien podría transmitir la pantalla en vivo a otra unidad o extraer la llave del ESP32. **Lo invalidaría** que clonarlo sea barato y fácil. Mitigación: cifrado de flash del ESP32 y, en una siguiente versión, incluir ubicación GPS en la firma.
