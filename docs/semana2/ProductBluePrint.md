@@ -95,6 +95,7 @@ flowchart LR
 ## 5. Lean Canvas
 
 **Enlace al Lean Canvas (obligatorio):** [COMPLETAR: Lean Canvas del proyecto]https://claude.ai/artifact/MC5NCqzZnXoUcxSUhhM1mY
+
 | **Problema** | 
 El pasajero no tiene forma de saber si la unidad en la que viaja recibió mantenimiento; solo puede confiar en calcomanías o papeles fáciles de falsificar.
 Los registros de mantenimiento de los talleres están en papel o en sistemas aislados: nadie fuera del taller puede auditarlos ni comprobar que no se alteraron.
