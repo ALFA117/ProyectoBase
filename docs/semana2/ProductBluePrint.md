@@ -95,11 +95,6 @@ flowchart LR
 ## 5. Lean Canvas
 
 **Enlace al Lean Canvas (obligatorio):** [COMPLETAR: Lean Canvas del proyecto]https://claude.ai/artifact/MC5NCqzZnXoUcxSUhhM1mY
-
-Contenido sugerido para llenar el lienzo:
-
-| Bloque | Contenido |
-| --- | --- |
 | **Problema** | 
 El pasajero no tiene forma de saber si la unidad en la que viaja recibió mantenimiento; solo puede confiar en calcomanías o papeles fáciles de falsificar.
 Los registros de mantenimiento de los talleres están en papel o en sistemas aislados: nadie fuera del taller puede auditarlos ni comprobar que no se alteraron.
@@ -110,41 +105,46 @@ ALTERNATIVAS ACTUALES
 Bitácoras en papel y hojas de cálculo del taller o del operador.
 Constancias y engomados de revisión vehicular periódica.
 Inspecciones manuales y esporádicas de la autoridad.
-Sistemas internos de gestión de flotillas (no verificables por terceros).|
+Sistemas internos de gestión de flotillas (no verificables por terceros).
+
 | **Segmento de usuarios** |
 QUIÉN PAGA (B2B → B2G) Concesionarios y operadores de rutas de microbús.Aseguradoras de transporte público.Autoridades de movilidad (a mediano plazo).
 QUIÉN LO USA: Talleres verificados: registran y firman los servicios.Pasajeros, inspectores y aseguradoras: verifican gratis, sin cuenta.
 PRIMEROS USUARIOS (EARLY ADOPTERS): Operadores medianos de una ruta que ya llevan bitácora y quieren diferenciarse o negociar su seguro. (Hipótesis)  Talleres que ya atienden flotillas de transporte.(Hipótesis) |
+
 | **Propuesta de valor única** |
 El mantenimiento de tu unidad, verificable por cualquiera en segundos.
 Un QR que no se puede falsificar con una foto, respaldado por un expediente que ningún taller ni operador puede alterar después de firmado.
 CONCEPTO EN UNA LÍNEA
 El historial de mantenimiento del transporte público, verificable en tiempo real y con prueba en blockchain. |
+
 | **Solución** |
 Expediente digital firmado por un taller verificado (KYB): tipo de servicio, kilometraje y checklist de frenos, llantas, luces, dirección, suspensión y cinturones.
 Anclaje en Stellar: la huella SHA-256 del expediente se publica en la blockchain; cualquier alteración posterior se detecta.
 QR dinámico en la pantalla de la unidad que cambia cada 15 s: se escanea con cualquier celular, sin app, y una foto vieja del QR no sirve. |
-| **Canales** |Venta directa a uniones y agrupaciones de transportistas.Talleres que ya atienden flotillas como canal: cada taller trae a sus operadores.Pilotos con la autoridad de movilidad local.
+
+| **Canales** |
+Venta directa a uniones y agrupaciones de transportistas.Talleres que ya atienden flotillas como canal: cada taller trae a sus operadores.Pilotos con la autoridad de movilidad local.
 Aseguradoras que lo recomienden u ofrezcan a sus asegurados.
 El QR visible en la unidad: cada pasajero que escanea conoce la marca.
 Ecosistema Stellar: hackathons, bootcamps y fondos para proyectos.
-
 Hipótesis ningún canal está probado todavía. |
+
 | **Métricas clave** |
 Unidades registradas y % con mantenimiento vigente.
 Talleres verificados activos y expedientes firmados por mes.
 Verificaciones (escaneos de QR) por mes.
 Pilotos que pasan a cliente de pago; retención mensual de operadores.
-
 DESEMPEÑO TÉCNICO DEL MVP
-
 Tiempo de verificación pública: 0.3 – 0.8 s Medido
 Registro y anclaje en Stellar: 4 – 6 s Medido |
+
 | **Ventaja diferencial** | 
 La tecnología por sí sola se puede copiar; la ventaja tiene que venir de lo que se acumula con el uso.
 Historial acumulado por unidad: cada servicio firmado agrega datos que un competidor nuevo no tiene. Hipótesis
 Red de talleres verificados: cuantos más talleres firman, más completo y valioso es el historial para todos (efecto de red). Hipótesis
 Alianza con la autoridad de movilidad que adopte el QR como requisito. Hipótesis |
+
 | **Estructura de costos** |
 Infraestructura: hosting (Vercel) y base de datos (Supabase); planes gratuitos en el MVP, de pago al crecer.
 Comisión de Stellar por registro: 100 stroops = 0.00001 XLM por expediente anclado. Medido
@@ -152,7 +152,9 @@ Verificación KYB de talleres: revisión manual de documentos (personal).
 Pantalla ESP32 por unidad (fase 2): hardware e instalación; costo por estimar.
 Desarrollo, soporte y ventas/alianzas.
 Paso a mainnet: auditoría de seguridad y fondos en XLM para la cuenta de anclaje. |
-| **Fuentes de ingresos** |  Suscripción mensual por unidad para operadores y concesionarios. Hipótesis
+
+| **Fuentes de ingresos** | 
+Suscripción mensual por unidad para operadores y concesionarios. Hipótesis
 Cuota del taller verificado: alta con KYB más suscripción, o cobro por expediente firmado. Hipótesis
 API de consulta para aseguradoras (por consulta o por plan). Hipótesis
 Licencia para la autoridad de movilidad como plataforma de cumplimiento (B2G). Hipótesis
