@@ -42,7 +42,7 @@
 
 ## 2. Propuesta de valor
 
-**Usuario (del Problem Brief):** El socio dueño de una unidad de transporte concesionado (el caso de Mario en el Problem Brief), que puede perder la cobertura de su aseguradora y enfrentar problemas legales por no poder comprobar la regularidad de su unidad. *[COMPLETAR: confirmar que coincide con el usuario del Problem Brief]*
+**Usuario (del Problem Brief):** El socio dueño de una unidad de transporte concesionado (el caso de Mario en el Problem Brief), que puede perder la cobertura de su aseguradora y enfrentar problemas legales por no poder comprobar la regularidad de su unidad. *[Coincide]*
 
 **Resultado que obtiene:** Un expediente digital de mantenimiento de cada unidad, firmado por el taller y con una huella inalterable anclada en Stellar. Después de un accidente, el socio presenta a la aseguradora una prueba que nadie pudo modificar y conserva su cobertura civil.
 
