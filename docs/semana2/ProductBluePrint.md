@@ -94,7 +94,7 @@ flowchart LR
 
 ## 5. Lean Canvas
 
-**Enlace al Lean Canvas (obligatorio):** [COMPLETAR: Lean Canvas del proyecto](https://escriban-aqui-el-enlace)
+**Enlace al Lean Canvas (obligatorio):** [COMPLETAR: Lean Canvas del proyecto]https://claude.ai/artifact/MC5NCqzZnXoUcxSUhhM1mY
 
 Contenido sugerido para llenar el lienzo:
 
@@ -142,7 +142,6 @@ Tiempo de verificación pública: 0.3 – 0.8 s Medido
 Registro y anclaje en Stellar: 4 – 6 s Medido |
 | **Ventaja diferencial** | 
 La tecnología por sí sola se puede copiar; la ventaja tiene que venir de lo que se acumula con el uso.
-
 Historial acumulado por unidad: cada servicio firmado agrega datos que un competidor nuevo no tiene. Hipótesis
 Red de talleres verificados: cuantos más talleres firman, más completo y valioso es el historial para todos (efecto de red). Hipótesis
 Alianza con la autoridad de movilidad que adopte el QR como requisito. Hipótesis |
@@ -153,7 +152,7 @@ Verificación KYB de talleres: revisión manual de documentos (personal).
 Pantalla ESP32 por unidad (fase 2): hardware e instalación; costo por estimar.
 Desarrollo, soporte y ventas/alianzas.
 Paso a mainnet: auditoría de seguridad y fondos en XLM para la cuenta de anclaje. |
-| **Fuentes de ingresos** | 6. Fuentes de ingreso Suscripción mensual por unidad para operadores y concesionarios. Hipótesis
+| **Fuentes de ingresos** |  Suscripción mensual por unidad para operadores y concesionarios. Hipótesis
 Cuota del taller verificado: alta con KYB más suscripción, o cobro por expediente firmado. Hipótesis
 API de consulta para aseguradoras (por consulta o por plan). Hipótesis
 Licencia para la autoridad de movilidad como plataforma de cumplimiento (B2G). Hipótesis
