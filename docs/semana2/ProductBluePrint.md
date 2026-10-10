@@ -19,23 +19,24 @@
 
 ---
 
-## 1. Priorización de historias
+1. Priorización de historias
 
-**Criterio de priorización:** Usamos MoSCoW (imprescindible / debería / podría) y lo cruzamos con dos preguntas: (1) ¿resuelve el problema central, que el socio pierda la cobertura de la aseguradora por no poder probar su mantenimiento? (2) ¿sin esta historia el flujo de punta a punta deja de funcionar? Las historias parecidas de distintos integrantes se fusionaron en una sola.
+Criterio de priorización: Usamos MoSCoW (imprescindible / debería / podría) y lo cruzamos con dos preguntas: (1) ¿resuelve el problema central, que el socio pierda la cobertura de la aseguradora por no poder probar su mantenimiento? (2) ¿sin esta historia el flujo de punta a punta deja de funcionar? Las historias parecidas de distintos integrantes se fusionaron en una sola.
 
-| Prioridad | Historia | Propuesta por | Por qué entra al backlog |
-| :---: | --- | :---: | --- |
-| 1 | Como socio dueño de una unidad quiero que cada servicio de mantenimiento quede registrado con fecha y huella digital inalterable en un expediente digital para demostrar ante la aseguradora que mi unidad tenía mantenimiento vigente y no perder la cobertura civil. *(Imprescindible)* | Diego (#1), Edgar (#6) | Es la razón de ser del producto: el socio se descapitaliza cuando no puede probar su mantenimiento. |
-| 2 | Como taller mecánico autorizado quiero firmar digitalmente cada servicio y generar un comprobante verificable anclado al expediente para que mi trabajo sea evidencia que nadie pueda cuestionar. *(Imprescindible)* | Diego (#2), Edgar (#5) | Sin la firma del taller no hay dato honesto en el origen. |
-| 3 | Como aseguradora quiero consultar el expediente de una unidad, ver quién y cuándo registró cada servicio, y compararlo con lo anclado en Stellar para resolver una disputa con evidencia no alterable. *(Imprescindible)* | Diego (#4), Edgar (#3) | Es la contraparte de la historia 1: si la aseguradora no puede validar, el registro no sirve. |
-| 4 | Como inspector de SEMOVI quiero escanear el QR de la unidad desde mi teléfono y ver en el momento si su mantenimiento está vigente para verificar cumplimiento sin pedir papeles. *(Imprescindible)* | Diego (#5), Edgar (#4) | Lleva el expediente a la verificación en campo. |
-| 5 | Como chofer quiero que el QR de la pantalla cambie solo cada 10–15 segundos para que nadie pueda fotografiar un código viejo y usarlo en otra unidad. *(Imprescindible)* | Diego (#6) | Sin rotación, el mecanismo anti-falsificación se cae. |
-| 6 | Como socio dueño quiero recibir alertas cuando un mantenimiento esté por vencer para programarlo antes de operar fuera de cumplimiento. *(Debería)* | Edgar (#1) | Previene el problema en lugar de solo documentarlo. |
-| 7 | Como presidente de ruta o encargado de flotilla quiero ver en un tablero el semáforo de todas las unidades para sacar de circulación a tiempo la que está por vencer. *(Debería)* | Fernanda (#2), Edgar (#2) | Escala el valor de una unidad a toda la concesión. |
-| 8 | Como pasajero quiero escanear el QR y ver si la unidad está verificada, con fecha del último mantenimiento, para viajar con más confianza. *(Debería)* | Fernanda (#3), Diego (#7) | Reutiliza el mismo QR y genera presión social de cumplimiento. |
+Prioridad	Historia	Propuesta por	Por qué entra al backlog
+1	Como socio dueño de una unidad quiero que cada servicio de mantenimiento quede registrado con fecha y huella digital inalterable en un expediente digital para demostrar ante la aseguradora que mi unidad tenía mantenimiento vigente y no perder la cobertura civil. (Imprescindible)	Diego (#1), Edgar (#6)	Es la razón de ser del producto: el socio se descapitaliza cuando no puede probar su mantenimiento.
+2	Como taller mecánico autorizado quiero firmar digitalmente cada servicio y generar un comprobante verificable anclado al expediente para que mi trabajo sea evidencia que nadie pueda cuestionar. (Imprescindible)	Diego (#2), Edgar (#5)	Sin la firma del taller no hay dato honesto en el origen.
+3	Como taller sin conocimientos de blockchain quiero registrar y firmar un servicio desde el celular con un flujo tan simple como un formulario, sin llaves privadas, frases semilla ni XLM, para adoptar el sistema sin aprender tecnología nueva. (Imprescindible)	Andrés (#2)	Sin adopción del taller no hay datos en el origen.
+4	Como administrador de la ruta quiero dar de alta, suspender y revocar talleres y laboratorios autorizados en un registro verificable para que solo firmas vigentes cuenten como evidencia. (Imprescindible)	Andrés (#1)	La confianza del sistema depende de saber quién puede firmar.
+5	Como aseguradora o ajustador quiero consultar el expediente de una unidad, ver quién y cuándo registró cada servicio y exportar un reporte con las pruebas de anclaje en Stellar (hash, transacción y fecha) para adjuntarlo a mi dictamen. (Imprescindible)	Diego (#4), Edgar (#3), Andrés (#6)	Es la contraparte de la historia 1: si la aseguradora no puede validar y usar la evidencia, el registro no sirve.
+6	Como inspector de SEMOVI quiero escanear el QR de la unidad desde mi teléfono y ver en el momento si su mantenimiento está vigente para verificar cumplimiento sin pedir papeles. (Imprescindible)	Diego (#5), Edgar (#4)	Lleva el expediente a la verificación en campo.
+7	Como chofer quiero que el QR de la pantalla cambie solo cada 10–15 segundos para que nadie pueda fotografiar un código viejo y usarlo en otra unidad. (Imprescindible)	Diego (#6)	Sin rotación, el mecanismo anti-falsificación se cae.
+8	Como equipo que opera la plataforma quiero que el costo de anclar cada registro en Stellar lo absorba la plataforma mediante cuentas patrocinadas para que ningún actor pague comisiones de red. (Imprescindible, habilitador técnico)	Andrés (#7)	Hace posible la historia 3 y mantiene el modelo de negocio sostenible.
+9	Como socio dueño quiero recibir un aviso por WhatsApp o SMS días antes de que venza un mantenimiento para programarlo a tiempo. (Debería)	Edgar (#1), Andrés (#3)	Previene el problema en lugar de solo documentarlo.
+10	Como administrador de la ruta o encargado de flotilla quiero ver en un tablero el estado (vigente, por vencer, vencido) de todas las unidades para actuar antes de un siniestro o una revisión. (Debería)	Fernanda (#2), Edgar (#2), Andrés (#4)	Escala el valor de una unidad a toda la concesión.
+11	Como pasajero quiero escanear el QR y ver si la unidad está verificada, con la fecha del último mantenimiento, para viajar con más confianza. (Debería)	Fernanda (#3), Diego (#7)	Reutiliza el mismo QR y genera presión de cumplimiento.
 
-**Quedan fuera por ahora (Podría):** registro de antidoping con laboratorio (Diego #3), check-list diario del chofer (Fernanda #1), órdenes de corrección con evidencia antes/después (Fernanda #4), expediente compartido para operadores que rentan (Fernanda #5) y auditoría del historial de modificaciones (Edgar #7).
-
+Quedan fuera por ahora (Podría): registro de antidoping con laboratorio (Diego #3), check-list diario del chofer (Fernanda #1), órdenes de corrección con evidencia antes/después (Fernanda #4), expediente para operadores que rentan (Fernanda #5), auditoría del historial de modificaciones (Edgar #7) y traspaso del historial al vender la unidad (Andrés #5).
 ---
 
 ## 2. Propuesta de valor
